@@ -1,0 +1,16 @@
+{
+  "data": {
+    "distribution": [
+      {
+        "id": 0,
+        "amount": "69640000000000000000",
+        "duration": 0,
+        "lockStart": 0,
+        "multiplier": 1
+      }
+    ],
+    "totalStaked": "69640000000000000000",
+    "totalPower": "69640000000000000000"
+  },
+  "statusCode": 200
+}

@@ -1,0 +1,13 @@
+{
+  "generated": "2026-04-21T09:58:01.949Z",
+  "totalAddresses": 5449,
+  "staticEndpoints": [
+    "activity-cook-feast-season-1",
+    "multiplier-config",
+    "power-total"
+  ],
+  "filesGenerated": 16347,
+  "filesFetched": 13758,
+  "filesSkipped": 2589,
+  "errors": 0
+}

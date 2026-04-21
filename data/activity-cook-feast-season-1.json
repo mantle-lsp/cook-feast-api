@@ -1,0 +1,19 @@
+{
+  "data": {
+    "id": 1,
+    "name": "cook-feast-season-1",
+    "lockPeriodStart": 1732183200000,
+    "lockPeriodEnd": 1739699940000,
+    "claimStartTime": 1740736800000,
+    "claimEndTime": 1748512800000,
+    "totalReleaseAmount": "200000000000000000000",
+    "tokenAddress": "0xE6829d9a7eE3040e1276Fa75293Bde931859e8fA",
+    "type": "LINEAR_UNLOCK_ONE_TIME",
+    "createdAt": "2024-11-19T11:18:02.281Z",
+    "updatedAt": "2025-02-27T03:15:47.947Z",
+    "trancheAddress": null,
+    "userLockLimit": null,
+    "tokenPrice": null
+  },
+  "statusCode": 200
+}
