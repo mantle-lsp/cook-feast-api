@@ -96,7 +96,7 @@ async function concurrent(tasks, concurrency) {
 function parseCSV(filepath) {
   const content = fs.readFileSync(filepath, 'utf-8');
   const lines = content.split('\n').filter(l => l.trim() && !l.startsWith('userAddress'));
-  return lines.map(l => l.trim()).filter(l => l.length > 0);
+  return lines.map((l) => l.trim().toLowerCase()).filter((l) => l.length > 0);
 }
 
 function ensureDir(dir) {
@@ -169,8 +169,9 @@ async function main() {
 
   const tasks = [];
   for (const addr of addresses) {
+    const addressKey = addr.toLowerCase();
     for (const endpoint of perAddressEndpoints) {
-      const filename = `${endpoint.name(addr)}.json`;
+      const filename = `${endpoint.name(addressKey)}.json`;
       const filepath = path.join(DATA_DIR, endpoint.dir, filename);
 
       if (isFileValid(filepath)) {
@@ -178,15 +179,15 @@ async function main() {
         continue;
       }
 
-      const url = `${BASE_URL}${endpoint.path(addr)}`;
+      const url = `${BASE_URL}${endpoint.path(addressKey)}`;
       ensureDir(path.join(DATA_DIR, endpoint.dir));
       tasks.push(async () => {
         try {
           const data = await fetchWithRetry(url);
           fs.writeFileSync(filepath, JSON.stringify(data, null, 2));
-          return { success: true, addr, endpoint: endpoint.name(addr) };
+          return { success: true, addr, endpoint: endpoint.name(addressKey) };
         } catch (err) {
-          return { success: false, addr, endpoint: endpoint.name(addr), error: err.message };
+          return { success: false, addr, endpoint: endpoint.name(addressKey), error: err.message };
         }
       });
     }
